@@ -1,26 +1,10 @@
-/*
- * On the head set the plugin's name, version, author details and license
- * for example, for example:
+/**
+ * smoothScroll plugin.
  *
- * ------------------------------------------------------------------------
+ * To make your anchor links look fancy.
  *
- * jquery-plugin.js Version 0.1
- * jQuery Plugin Boilerplate code helps creating your custom jQuery plugins.
- *
- * Licensed under MIT license
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright (c) 2013 Antonio Santiago
- *
- * Permission is hereby granted, free of charge, to any person obtaining a
- * copy of this software and associated documentation files (the "Software"),
- * to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense,
- * and/or sell copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * @author Luiz Filipe Machado Barni <luiz@odahcam.com>
+ * @version 1.0.0
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -29,8 +13,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
- */
-(function ($, window, document, undefined) {
+ */;(function ($, window, document, undefined) {
 
     if (!$) {
         console.error("jQuery not found. Please make sure to import jQuery berofe importing the plugin.");
