@@ -202,6 +202,3 @@
     };
 
 })(window.jQuery || false, window, document);
-
-$('a[href^="#"]').off('click');
-$('a[href^="#"]').smoothScroll();
