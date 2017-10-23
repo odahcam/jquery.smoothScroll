@@ -28,6 +28,7 @@
     var pluginName = 'smoothScroll',
         // plugin default options
         defaults = {
+            // @TODO: use elements to disccount for fixing horizontal fixed element height problems.
             fixedHeader: '#header, body>header, header.main, #header-main', // stores the document header selector
             easing: 'swing', // easing type
             duration: 'auto', // int (in ms) or 'auto', that will use speed
@@ -109,22 +110,23 @@
             this.$el.removeData();
 
             // Remove Listenners
-            this.$el.off('click.' + pluginName);
+            this.$el.off('.' + pluginName);
         },
         /**
          * @description Scrolls the page to the element desired, based on Header's height.
          *
          * @param {elem} elem jQuery object
          * @param {int} duration
-         * @param {int} location
+         *
          * @returns {void}
          */
         _scrollTo: function ($elem, duration) {
 
             $elem = $elem || $(document.body);
-            var plugin = this,
-                headerHeight = this.$fixedHeader.height(),
-                target = Math.ceil(($elem.offset().top || 0) - headerHeight || 0);
+            
+            var plugin = this;
+            var headerHeight = this.$fixedHeader.height();
+            var target = Math.ceil(($elem.offset().top || 0) - headerHeight || 0);
 
             if (typeof duration !== 'number') {
                 var distance = Math.abs($(window).scrollTop() - target);
@@ -145,10 +147,10 @@
      * This is a real private method. A plugin instance has access to it
      * @return {[type]}
      */
-    var privateMethod = function () {
+    /* var privateMethod = function () {
         console.log("privateMethod");
         console.log(this);
-    };
+    };*/
 
     /**
      * This is were we register our plugin withint jQuery plugins.
