@@ -126,20 +126,29 @@
             
             var plugin = this;
             var headerHeight = this.$fixedHeader.height();
-            var target = Math.ceil(($elem.offset().top || 0) - headerHeight || 0);
+            var target = Math.floor(($elem.offset().top || 0) - headerHeight || 0);
 
             if (typeof duration !== 'number') {
                 var distance = Math.abs($(window).scrollTop() - target);
                 duration = Math.round(distance / this.settings.speed * 1000); // X pixels / 300 pixels/second * 1000 ms
             }
+            
+            var $page = $("html, body");
 
-            $("html, body").stop().animate({
-                scrollTop: target
-            }, duration, this.settings.easing, function () {
-                if (headerHeight !== plugin.$fixedHeader.height()) {
-                    plugin._scrollTo($elem, '');
-                }
-            });
+            $page
+                .stop()
+                .on('scroll.scrollHere mousedown.scrollHere wheel.scrollHere DOMMouseScroll.scrollHere mousewheel.scrollHere keyup.scrollHere touchmove.scrollHere', function () {
+                    $page.stop();
+                })
+                .animate({
+                    scrollTop: location
+                }, duration, this.settings.easing, function () {
+                    $page.off('scrollHere');
+                
+                    if (headerHeight !== plugin.$fixedHeader.height()) {
+                        plugin._scrollTo($elem, '');
+                    }
+                });
         }
     };
 
